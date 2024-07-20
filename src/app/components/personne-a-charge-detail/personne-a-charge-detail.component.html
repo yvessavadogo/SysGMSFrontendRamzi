@@ -1,0 +1,18 @@
+
+<div class="container">
+  <h2>Détail de la personne à charge</h2>
+  <div *ngIf="personneACharge">
+    <p *ngIf="personneACharge.photoAssure">Photo: <img [src]="'data:image/png;base64,' + personneACharge.photoAssure" alt="Photo de {{ personneACharge.prenomAssure }}"></p>
+    <p>Nom: {{ personneACharge.nomAssure }}</p>
+    <p>Prénom: {{ personneACharge.prenomAssure }}</p>
+    <p>Mutualiste associé: {{ personneACharge.mutualisteAssocie }}</p>
+    <p>Lien de parenté: {{ personneACharge.affilliationPAC }}</p>
+    <p>Date de naissance: {{ personneACharge.dateNaissanceAssure }}</p>
+    <p>Sexe: {{ personneACharge.sexeAssure }}</p>
+    <p>Téléphone: {{ personneACharge.telephoneAssure }}</p>
+    <p>Adresse: {{ personneACharge.adresseAssure }}</p>
+    <p>Statut: {{ personneACharge.statutAssure }}</p>
+    <button routerLink="/personnesacharge">Retour à la liste</button>
+    <button (click)="editPersonneACharge()">Modifier</button> <!-- Utilisez une méthode pour la navigation -->
+  </div>
+</div>

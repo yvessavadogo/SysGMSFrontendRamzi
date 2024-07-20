@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MutualisteService {
-  private apiUrl = 'http://192.168.1.3/api/mutualistes';
+  private apiUrl = 'http://127.0.0.1:8000/api/mutualistes';
 
   constructor(private http: HttpClient) {}
 
@@ -18,12 +18,20 @@ export class MutualisteService {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
-  create(data: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, data);
-  }
+  create(data: FormData): Observable<any> {
+    return this.http.post(this.apiUrl, data, {
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+}
 
-  update(id: number, data: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, data);
+  update(id: number, data: FormData): Observable<any> {
+    return this.http.post(`${this.apiUrl}/${id}`, data, {
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
   }
 
   delete(id: number): Observable<any> {
