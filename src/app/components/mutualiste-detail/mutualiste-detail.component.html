@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Détail du Mutualiste</h2>
+  <div *ngIf="mutualiste">
+    <p *ngIf="mutualiste.photoAssure">Photo: <img [src]="'data:image/png;base64,' + mutualiste.photoAssure" alt="Photo de {{ mutualiste.prenomAssure }}"></p>
+    <p>Nom: {{ mutualiste.nomAssure }}</p>
+    <p>Prénom: {{ mutualiste.prenomAssure }}</p>
+    <p>Matricule: {{ mutualiste.matriculeMutualiste }}</p>
+    <p>Date de naissance: {{ mutualiste.dateNaissanceAssure }}</p>
+    <p>Sexe: {{ mutualiste.sexeAssure }}</p>
+    <p>Téléphone: {{ mutualiste.telephoneAssure }}</p>
+    <p>Adresse: {{ mutualiste.adresseAssure }}</p>
+    <p>Statut: {{ mutualiste.statutAssure }}</p>
+    <button routerLink="/mutualistes">Retour à la liste</button>
+    <button routerLink="/mutualistes/edit/{{ mutualiste.idMutualiste }}">Modifier</button>
+  </div>
+</div>

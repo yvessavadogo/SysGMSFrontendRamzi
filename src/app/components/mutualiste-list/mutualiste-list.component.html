@@ -1,0 +1,35 @@
+<div>
+  <input type="text" placeholder="Rechercher..." [(ngModel)]="searchQuery" (ngModelChange)="search()">
+  <button (click)="createMutualiste()">Ajouter un mutualiste</button>
+  <table>
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Matricule</th>
+        <th>Catégorie</th>
+        <th>Nombre de personnes à charge</th>
+        <th>Cumul des dépenses</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mutualiste of mutualistes">
+        <td></td>
+        <td>{{ mutualiste.nomAssure }}</td>
+        <td>{{ mutualiste.prenomAssure }}</td>
+        <td>{{ mutualiste.matriculeMutualiste }}</td>
+        <td>{{ mutualiste.categorieMutualiste }}</td>
+        <td>{{ mutualiste.personnes_a_charge }}</td>
+        <td>{{ mutualiste.depensesSante }}</td>
+        <td>
+          <button (click)="viewMutualiste(mutualiste.idMutualiste)">Afficher</button>
+          <button (click)="editMutualiste(mutualiste.idMutualiste)">Modifier</button>
+          <button (click)="deleteMutualiste(mutualiste.idMutualiste)">Supprimer</button>
+          <button (click)="viewPersonnesACharge(mutualiste.idMutualiste)">Personnes à charge</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

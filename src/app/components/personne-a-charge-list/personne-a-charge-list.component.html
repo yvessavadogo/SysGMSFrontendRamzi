@@ -1,0 +1,34 @@
+<div>
+  <input type="text" placeholder="Rechercher..." [(ngModel)]="searchQuery" (ngModelChange)="search()">
+  <button (click)="createPersonneACharge(mutualisteId)">Ajouter une personne à charge</button>
+  <table>
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Sexe</th>
+        <th>Date de Naissance</th>
+        <th>Mutualiste Associé</th>
+        <th>Affiliation</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let personneACharge of filteredPersonnesACharge">
+        <td>{{ personneACharge.idPAC}}</td>
+        <td>{{ personneACharge.nomAssure}}</td>
+        <td>{{ personneACharge.prenomAssure }}</td>
+        <td>{{ personneACharge.sexeAssure }}</td>
+        <td>{{ personneACharge.dateNaissanceAssure }}</td>
+        <td>{{ personneACharge.mutualisteAssocie }}</td>
+        <td>{{ personneACharge.affilliationPAC }}</td>
+        <td>
+          <button (click)="viewPersonneACharge(personneACharge.idPAC)">Afficher</button>
+          <button (click)="editPersonneACharge(personneACharge.idPAC)">Modifier</button>
+          <button (click)="deletePersonneACharge(personneACharge.idPAC)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

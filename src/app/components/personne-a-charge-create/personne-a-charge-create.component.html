@@ -1,0 +1,105 @@
+<div class="container">
+    <h2>Créer une Personne à Charge</h2>
+    <form [formGroup]="personneAChargeForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+
+      <div class="form-group">
+        <label for="nomAssure">Nom :</label>
+        <input type="text" id="nomAssure" formControlName="nomAssure" class="form-control" placeholder="Nom" />
+        <div *ngIf="personneAChargeForm.get('nomAssure')?.invalid && personneAChargeForm.get('nomAssure')?.touched" class="text-danger">
+          Nom est obligatoire
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prenomAssure">Prénom :</label>
+        <input type="text" id="prenomAssure" formControlName="prenomAssure" class="form-control" placeholder="Prénom" />
+        <div *ngIf="personneAChargeForm.get('prenomAssure')?.invalid && personneAChargeForm.get('prenomAssure')?.touched" class="text-danger">
+          Prénom est obligatoire
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dateNaissanceAssure">Date de Naissance :</label>
+        <input type="date" id="dateNaissanceAssure" formControlName="dateNaissanceAssure" class="form-control" placeholder="Date de Naissance" />
+        <div *ngIf="personneAChargeForm.get('dateNaissanceAssure')?.invalid && personneAChargeForm.get('dateNaissanceAssure')?.touched" class="text-danger">
+          Date de naissance est obligatoire
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="sexeAssure">Sexe :</label>
+        <select id="sexeAssure" formControlName="sexeAssure" class="form-control">
+          <option value="">Sélectionner le sexe</option>
+          <option value="M">Masculin</option>
+          <option value="F">Féminin</option>
+        </select>
+        <div *ngIf="personneAChargeForm.get('sexeAssure')?.invalid && personneAChargeForm.get('sexeAssure')?.touched" class="text-danger">
+          Sexe est obligatoire
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="telephoneAssure">Téléphone :</label>
+        <input type="tel" id="telephoneAssure" formControlName="telephoneAssure" class="form-control" placeholder="Téléphone" />
+        <div *ngIf="personneAChargeForm.get('telephoneAssure')?.invalid && personneAChargeForm.get('telephoneAssure')?.touched" class="text-danger">
+          Téléphone est obligatoire
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="adresseAssure">Adresse :</label>
+        <input type="text" id="adresseAssure" formControlName="adresseAssure" class="form-control" placeholder="Adresse" />
+        <div *ngIf="personneAChargeForm.get('adresseAssure')?.invalid && personneAChargeForm.get('adresseAssure')?.touched" class="text-danger">
+          Adresse est obligatoire
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="photoAssure">Photo</label>
+        <input type="file" class="form-control" id="photoAssure" (change)="onFileChange($event, 'photoAssure')" accept="image/png, image/jpeg, image/jpg" required>
+      </div>
+
+      <div class="form-group">
+        <label for="statutAssure">Statut :</label>
+        <select id="statutAssure" formControlName="statutAssure" class="form-control">
+          <option value="">Sélectionner</option>
+          <option value="1">Actif</option>
+          <option value="0">Inactif</option>
+        </select>
+        <div *ngIf="personneAChargeForm.get('statutAssure')?.invalid && personneAChargeForm.get('statutAssure')?.touched" class="text-danger">
+          Statut est requis.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="affilliationPAC">Affiliation :</label>
+        <select id="affilliationPAC" formControlName="affilliationPAC" class="form-control">
+          <option value="conjoint">Conjoint(e)</option>
+          <option value="enfant">Enfant</option>
+        </select>
+        <div *ngIf="personneAChargeForm.get('affilliationPAC')?.invalid && personneAChargeForm.get('affilliationPAC')?.touched" class="text-danger">
+          Affiliation est requise.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="documentAffiliationPAC">Document d'affiliation PAC :</label>
+        <input type="file" id="documentAffiliationPAC" formControlName="documentAffiliationPAC" class="form-control" />
+        <div *ngIf="personneAChargeForm.get('documentAffiliationPAC')?.invalid && personneAChargeForm.get('documentAffiliationPAC')?.touched" class="text-danger">
+          Document d'affiliation PAC est obligatoire
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="certificatScolarite">Certificat de scolarité :</label>
+        <input type="file" id="certificatScolarite" formControlName="certificatScolarite" class="form-control" />
+        <div *ngIf="personneAChargeForm.get('certificatScolarite')?.invalid && personneAChargeForm.get('certificatScolarite')?.touched" class="text-danger">
+          Certificat de scolarité est obligatoire
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="personneAChargeForm.invalid">Soumettre</button>
+
+    </form>
+
+  </div>

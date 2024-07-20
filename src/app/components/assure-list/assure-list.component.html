@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Liste des Assurés</h2>
+  <input type="text" placeholder="Rechercher..." [(ngModel)]="searchQuery" (ngModelChange)="search($event)">
+  <button routerLink="/ajouter-assure">Ajouter un Assuré</button>
+  <table>
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Sexe</th>
+        <th>Date de naissance</th>
+        <th>Type</th>
+        <th>Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let assure of filteredAssures">
+        <td></td>
+        <td>{{ assure.nomAssure }}</td>
+        <td>{{ assure.prenomAssure }}</td>
+        <td>{{ assure.sexeAssure }}</td>
+        <td>{{ assure.dateNaissanceAssure }}</td>
+        <td></td>
+        <td>{{ assure.statutAssure }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <button *ngFor="let page of [1, 2, 3]" (click)="changePage(page)">{{ page }}</button>
+  </div>
+</div>

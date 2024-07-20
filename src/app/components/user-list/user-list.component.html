@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Liste des Utilisateurs</h2>
+  <input type="text" placeholder="Rechercher..." [(ngModel)]="searchQuery" (ngModelChange)="search()">
+  <button routerLink="/ajouter-utilisateur">Ajouter un Utilisateur</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Statut du compte</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUsers">
+        <td>{{ user.nomUtilisateur }}</td>
+        <td>{{ user.prenomUtilisateur }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.statutUtilisateur }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <button *ngFor="let page of [1, 2, 3]" (click)="changePage(page)">{{ page }}</button>
+  </div>
+</div>
